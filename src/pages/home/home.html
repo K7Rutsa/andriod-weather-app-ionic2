@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title> <ion-icon name="cloudy-night"></ion-icon> NE Weather App</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+<ion-grid>
+    <ion-row>
+    <ion-col col-9>
+    <ion-item>
+       <ion-input type="text" placeholder="City name ?" (keyup.enter)="getweather(input.value); input.value = ''" #input></ion-input>
+    </ion-item>
+    </ion-col>
+    <ion-col col-3 class="center">
+       <button ion-button color="light" (click)="getweather(input.value); input.value = ''"><ion-icon name="search"></ion-icon></button>
+    </ion-col>
+    </ion-row>
+</ion-grid>
+      <br>
+    <ion-grid *ngIf="weatherData">
+      <ion-row>
+        <ion-col col-12 class="center">
+        <h5>{{weatherData.display_location.full}} ({{weatherData.weather}})</h5>
+        </ion-col>
+      </ion-row>
+
+      <ion-list class="center" class="describe">
+        <ion-item class="center"> <img src="{{weatherData.icon_url}}"> </ion-item>
+        <ion-item class="center"> Temperature - {{weatherData.temperature_string}}</ion-item>
+        <ion-item class="center">Relative Humidity- {{weatherData.relative_humidity}}</ion-item>
+        <ion-item class="center">Wind Direction- {{weatherData.wind_dir}}</ion-item>
+        <ion-item class="center">Wind Speed- {{weatherData.wind_kph}} kph</ion-item>
+        <ion-item class="center">UV {{weatherData.UV}}</ion-item>
+      </ion-list>
+    </ion-grid>
+</ion-content>
+
+

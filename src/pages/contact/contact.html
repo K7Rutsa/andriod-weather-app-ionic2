@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-icon name="flash"></ion-icon> Forcast
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="weather3dayData">
+      <ion-row>
+        <ion-col col-12>
+        <p><strong>Today</strong> - {{weather3dayData[0].fcttext}}</p>
+        <p><strong>Tonight</strong> - {{weather3dayData[1].fcttext}}</p>
+        <p><strong>Tomorrow</strong> - {{weather3dayData[2].fcttext}}</p>
+        <p><strong>Tomorrow Night</strong> - {{weather3dayData[3].fcttext}}</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="weatherAll" class="forcast">
+        <ion-col col-4>
+         <strong>Tomorrow</strong> <br> <img src="{{weatherAll[1].icon_url}}"> <br> {{weatherAll[1].high.celsius}}&deg;c
+        </ion-col>
+        <ion-col col-4>
+         <strong>{{weatherAll[2].date.weekday}}</strong> <br> <img src="{{weatherAll[2].icon_url}}">  <br>{{weatherAll[2].high.celsius}}&deg;c
+        </ion-col>
+        <ion-col col-4>
+         <strong>{{weatherAll[3].date.weekday}}</strong> <br>  <img src="{{weatherAll[3].icon_url}}"> <br>{{weatherAll[3].high.celsius}}&deg;c
+
+        </ion-col>
+      </ion-row>
+
+  </ion-grid>
+</ion-content>
